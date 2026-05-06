@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, X, Phone } from "lucide-react"
@@ -34,19 +35,28 @@ export function Navigation() {
   }
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" className="flex flex-col">
-            <span className="text-lg md:text-xl font-bold text-primary">Esdras Palheta</span>
-            <span className="text-xs text-muted-foreground hidden sm:block">Estética Automotiva</span>
+
+          {/* Logo Atualizada */}
+          <a href="#" className="flex items-center gap-3">
+            <Image
+              src="/logo.jpeg"
+              alt="Logo Esdras Palheta"
+              width={48}
+              height={48}
+              className="rounded-md object-cover"
+            />
+            <div className="flex flex-col">
+              <span className="text-lg md:text-xl font-bold text-primary">Esdras Palheta</span>
+              <span className="text-xs text-muted-foreground hidden sm:block">Estética Automotiva</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -64,7 +74,7 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button 
+            <Button
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={handleWhatsAppClick}
             >
@@ -99,7 +109,7 @@ export function Navigation() {
                   ))}
                 </nav>
                 <div className="mt-auto pb-8">
-                  <Button 
+                  <Button
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                     onClick={() => {
                       handleWhatsAppClick()
