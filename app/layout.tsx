@@ -30,8 +30,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="bg-background">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="pt-BR" className="bg-background scroll-smooth">
+      {/* ADICIONADO: 
+          - overflow-x-hidden: Mata qualquer vazamento horizontal.
+          - w-full: Garante que o body ocupe toda a largura.
+          - max-w-[100vw]: Trava a largura máxima na largura da tela.
+      */}
+      <body className={`${inter.variable} font-sans antialiased overflow-x-hidden w-full max-w-[100vw]`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
